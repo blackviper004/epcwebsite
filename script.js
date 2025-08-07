@@ -23,49 +23,41 @@ function toggleSection(id) {
 
         
     const scriptURL = 'https://script.google.com/macros/s/AKfycbysivuW_SzxXSU_Cs2FGuj6OrI5rEhNdgu6WUlXOaUr24sD94Aipt6qi7Jc1Y25Ni2XYQ/exec';
+function registerUser() {
+    event.preventDefault(); // prevent default form submit
 
-    function registerUser() {
-        const fullname = document.getElementById("fullname").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const department = document.getElementById("department").value.trim();
-        const year = document.getElementById("year").value.trim();
-        const usn = document.getElementById("usn").value.trim();
-        const phone = document.getElementById("phone").value.trim();
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const department = document.getElementById("department").value.trim();
+    const year = document.getElementById("year").value.trim();
+    const usn = document.getElementById("usn").value.trim();
+    const phone = document.getElementById("phone").value.trim();
 
-        if (!fullname || !email || !department || !usn || !phone) {
-            alert("Please fill all required fields.");
-            return false;
-        }
-
-        const formData = {
-            fullname,
-            email,
-            department,
-            year,
-            usn,
-            phone
-        };
-
-        fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.result === "success") {
-                alert("Registration successful!");
-                document.querySelector("#register form").reset();
-            } else {
-                alert("Error submitting data. Try again.");
-            }
-        })
-        .catch(error => {
-            alert("Submission failed: " + error.message);
-        });
-
+    if (!fullname || !email || !department || !usn || !phone) {
+        alert("Please fill all required fields.");
         return false;
     }
 
+    const formData = new FormData();
+    formData.append("fullname", fullname);
+    formData.append("email", email);
+    formData.append("department", department);
+    formData.append("year", year);
+    formData.append("usn", usn);
+    formData.append("phone", phone);
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(() => {
+        alert("Registration successful!");
+        document.querySelector("#register form").reset();
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Submission failed: " + error.message);
+    });
+
+    return false;
+}
