@@ -37,17 +37,19 @@ function registerUser(event) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            alert(data.message);
+            alert("✅ Registration successful!");
             form.reset();
         } else {
-            alert("Error: " + data.message);
+            alert("❌ Registration failed: " + data.message);
         }
     })
     .catch(error => {
         console.error("Error:", error);
-        alert("Submission failed. Please try again.");
+        alert("⚠️ Submission failed. Please try again.");
     });
 
     return false;
 }
+
+
 
