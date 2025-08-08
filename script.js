@@ -1,5 +1,5 @@
 // Change to your deployed Web App URL
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyv7ODFz3x2lv9qA5uAPD7FJOTt3QyJWbcBbO5mj5iZLydQ8l-sdmbQjB6ta1r7FZ8gpA/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzEM2umEBLRAtbldToiI1Vtb_tet65uEFlUEoAAoUCmsNnTLJtYjtlFvAK9fA3sA_BPFw/exec';
 
 function toggleSection(id) {
     document.getElementById('login').style.display = 'none';
@@ -51,3 +51,4 @@ function registerUser(event) {
 
     return false;
 }
+
