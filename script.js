@@ -22,7 +22,7 @@ function toggleSection(id) {
         }
 
         
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwDx0cVXmm57q3H5K55xulkXw4zUnL09gnIJCC9oiKlmVuXvGwduB0XkRjeFz18i7LW8w/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxPdVGaq3NyFDVT3n_bCy1DD8K5atOtS8PDMr3FPGPIbnnFvJtgzWqY1q2lWQW-WQAp/exec';
 
 function registerUser() {
     event.preventDefault();
@@ -46,4 +46,5 @@ function registerUser() {
 
     return false;
 }
+
 
