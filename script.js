@@ -24,7 +24,7 @@ function toggleSection(id) {
         
     const scriptURL = 'https://script.google.com/macros/s/AKfycbysivuW_SzxXSU_Cs2FGuj6OrI5rEhNdgu6WUlXOaUr24sD94Aipt6qi7Jc1Y25Ni2XYQ/exec';
 
-function registerUser() {
+function registerUser(event) {
     event.preventDefault();
 
     const form = document.querySelector("#register form");
@@ -32,12 +32,16 @@ function registerUser() {
 
     fetch(scriptURL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors'
+        body: formData
     })
-    .then(() => {
-        alert("Registration successful!");
-        form.reset();
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert(data.message);
+            form.reset();
+        } else {
+            alert("Error: " + data.message);
+        }
     })
     .catch(error => {
         console.error("Error:", error);
@@ -46,3 +50,4 @@ function registerUser() {
 
     return false;
 }
+
