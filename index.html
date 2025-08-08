@@ -48,13 +48,16 @@
             <input type="email" id="email" name="email" required>
 
             <label for="department">Department *</label>
-            <select id="department" name="dept" required>
-                <option value="">Select Department</option>
-                <option value="ECE">Electronics & Communication Engineering</option>
-                <option value="EEE">Electrical & Electronics Engineering</option>
-                <option value="ECEVLSI">Electronics (VLSI)</option>
-                <option value="ECEACT">Electronics & Communication Engineering (ACT)</option>
-            </select>
+           <label>
+              <input type="radio" name="dept" value="ECE"> Electronics and Communication
+            </label>
+            <label>
+              <input type="radio" name="dept" value="CSE"> Computer Science
+            </label>
+            <label>
+              <input type="radio" name="dept" value="ME"> Mechanical
+            </label>
+
 
             <label for="year">Year of Study*</label>
             <select id="year" name="year" required>
@@ -81,4 +84,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
